@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="center">
+            <img src="emre.jpg" height="500px" alt="">
+        </div>
+        <button class="play">
+            Yilan Ol Kardesimmmmmmmm
+        </button>
+    </div>
+
+    <script>
+        const button = document.querySelector(".play");
+        const center = document.querySelector(".center");
+        const audio = new Audio("mesnevi.mp4");
+
+        button.addEventListener("click", () => {
+            if (button.classList.contains("start")) {
+                audio.pause();
+                return;
+            }
+            document.querySelector("img").classList.add("start");
+            button.classList.add("zoom");
+            audio.play();
+            audio.loop = true;
+        });
+    </script>
+    <style>
+        .wrapper {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+
+        .start {
+            animation: spin 4s linear infinite;
+            transition: all .3s;
+            border-radius: 50%;
+        }
+
+
+        .zoom {
+            animation-name: zoom;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-play-state: running;
+            transition: all .3s;
+        }
+
+        .wrapper button {
+            margin-top: 50px;
+            height: 100px;
+            font-size: 22px;
+            border-radius: 3px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes zoom {
+            0% {
+                transform: scale(1) translateX(30px);
+            }
+
+            25% {
+                transform: scale(0.7) translateX(120px);
+            }
+
+            75% {
+                transform: scale(1) translateX(-35px);
+            }
+
+            50% {
+                transform: scale(0.7) translateX(60px);
+            }
+
+            100% {
+                transform: scale(1) translateX(0px);
+            }
+        }
+    </style>
+</body>
+
+
+</html>
